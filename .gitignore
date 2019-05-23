@@ -4,3 +4,4 @@ venv
 **/__pycache__
 **/*.pyc
 target
+src/main/resources/windows
