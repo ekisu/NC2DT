@@ -6,9 +6,15 @@ import os
 import time
 
 def get_default_osu_path():
-    local_app_data = Path(os.getenv("LOCALAPPDATA"))
-    osu_path = local_app_data / Path('osu!')
-    if not osu_path.exists():
+    possible_osu_folder_locations = [
+        Path(os.getenv("LOCALAPPDATA")) / Path('osu!'),
+        Path(os.getenv("ProgramW6432")) / Path('osu!')
+    ]
+    osu_path = next(
+        (path for path in possible_osu_folder_locations if path.exists()),
+        None
+    )
+    if osu_path is None:
         raise RuntimeError("Couldn't find osu! installation folder.")
     
     return osu_path
@@ -92,7 +98,7 @@ class OsuDB(object):
         self.version = 0
         self.user = ""
         self.beatmaps = []
-        
+
         debug("OsuDB: Reading osu!.db file")
         start = time.time()
         self._read(db_path)
