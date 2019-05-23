@@ -16,13 +16,12 @@ class Audio(object):
         temp_decoded_file = NamedTemporaryFile(delete=False)
         temp_decoded_file.close()
 
-        process_decode = (
-            ffmpeg
-            .input(str(self.path))
-            .output(temp_decoded_file.name, format="wav")
-            .overwrite_output()
-            .run()
-        )
+        subprocess.run([
+            "sox/sox.exe",
+            str(self.path),
+            "-t", "wav",
+            temp_decoded_file.name
+        ])
         
         temp_soundstretch_output = NamedTemporaryFile(delete=False)
         temp_soundstretch_output.close()
@@ -36,12 +35,12 @@ class Audio(object):
 
         os.remove(temp_decoded_file.name)
 
-        process_encode = (
-            ffmpeg
-            .input(temp_soundstretch_output.name)
-            .output(str(out_path), format="mp3", audio_bitrate="196k")
-            .overwrite_output()
-            .run()
-        )
+        subprocess.run([
+            "sox/sox.exe",
+            temp_soundstretch_output.name,
+            "-t", "mp3",
+            "-C", "192",
+            str(out_path)
+        ])
 
         os.remove(temp_soundstretch_output.name)
