@@ -1,0 +1,2 @@
+ffmpeg-python
+PyQt5
