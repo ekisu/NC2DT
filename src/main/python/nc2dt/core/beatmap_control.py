@@ -49,14 +49,11 @@ class BeatmapControl(object):
 
     def create_converted_version(self):
         debug("BeatmapControl.create_converted_version: started.")
-        start = time.process_time()
         audio = Audio(self.beatmap_audio_path)
-        end = time.process_time()
-        debug("BeatmapControl.create_converted_version: read file in ", end - start, "seconds")
 
-        start = time.process_time()
+        start = time.time()
         audio.convert_nc_to_dt(self.nc2dt_audio_path)
-        end = time.process_time()
+        end = time.time()
         debug("BeatmapControl.create_converted_version: NC2DT in ", end - start, "seconds")
     
     def switch_to_version(self, version):

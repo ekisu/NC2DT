@@ -1,5 +1,5 @@
 from pathlib import Path
-from nc2dt.utils import debug
+from nc2dt.utils import debug, get_sox_executable, get_soundstretch_executable
 import time
 import ffmpeg
 import os
@@ -17,7 +17,7 @@ class Audio(object):
         temp_decoded_file.close()
 
         subprocess.run([
-            "sox/sox.exe",
+            get_sox_executable(),
             str(self.path),
             "-t", "wav",
             temp_decoded_file.name
@@ -26,7 +26,7 @@ class Audio(object):
         temp_soundstretch_output = NamedTemporaryFile(delete=False)
         temp_soundstretch_output.close()
         subprocess.run([
-            "soundstretch.exe",
+            get_soundstretch_executable(),
             temp_decoded_file.name,
             temp_soundstretch_output.name,
             "-rate=-33.3333%",
@@ -36,7 +36,7 @@ class Audio(object):
         os.remove(temp_decoded_file.name)
 
         subprocess.run([
-            "sox/sox.exe",
+            get_sox_executable(),
             temp_soundstretch_output.name,
             "-t", "mp3",
             "-C", "192",

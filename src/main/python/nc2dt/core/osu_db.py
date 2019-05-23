@@ -3,6 +3,7 @@ from ..utils import debug
 from collections import namedtuple
 from pathlib import Path
 import os
+import time
 
 def get_default_osu_path():
     local_app_data = Path(os.getenv("LOCALAPPDATA"))
@@ -91,7 +92,12 @@ class OsuDB(object):
         self.version = 0
         self.user = ""
         self.beatmaps = []
+        
+        debug("OsuDB: Reading osu!.db file")
+        start = time.time()
         self._read(db_path)
+        end = time.time()
+        debug("OsuDB: Finished reading in", end - start, "seconds")
     
     def _skip_diff_pairs(self, db_reader: OsuDBReader):
         pairs_count = db_reader.read_int()
