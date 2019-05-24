@@ -13,9 +13,10 @@ def main():
     set_app_context(appctxt)
 
     osu_path = get_osu_path()
-    osu_db_file_path = osu_path / Path("osu!.db")
+    osu_db_file_path = osu_path is not None and (osu_path / Path("osu!.db")) or None
 
-    if not osu_db_file_path.exists():
+    if osu_path is None or \
+        not osu_db_file_path.exists():
         QtWidgets.QMessageBox.warning(None, "NC2DT", (
             "Couldn't find your osu! installation.\n"
             "Please select the folder where it's installed."
