@@ -1,4 +1,4 @@
-# ![NC2DT Logo](src/main/resources/base/icon/nc2dt.png) NC2DT
+# ![NC2DT Logo](logo.png)
 
 NC2DT is a osu! tool that allows one to convert their beatmaps' audio so that they, when
 used with the Nightcore (NC) mod, sound the same as the Double Time (DT) mod.
