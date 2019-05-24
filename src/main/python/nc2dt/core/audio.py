@@ -26,7 +26,7 @@ class Audio(object):
                 str(self.path),
                 "-t", "wav",
                 temp_decoded_file.name
-            ], check=True)
+            ], check=True, creationflags=subprocess.CREATE_NO_WINDOW)
             
             subprocess.run([
                 get_soundstretch_executable(),
@@ -34,7 +34,7 @@ class Audio(object):
                 temp_soundstretch_output.name,
                 "-rate=-33.3333%",
                 "-tempo=50%"
-            ], check=True)
+            ], check=True, creationflags=subprocess.CREATE_NO_WINDOW)
 
             subprocess.run([
                 get_sox_executable(),
@@ -42,7 +42,7 @@ class Audio(object):
                 "-t", "mp3",
                 "-C", "192",
                 str(out_path)
-            ], check=True)
+            ], check=True, creationflags=subprocess.CREATE_NO_WINDOW)
         finally:
             os.remove(temp_decoded_file.name)
             os.remove(temp_soundstretch_output.name)
