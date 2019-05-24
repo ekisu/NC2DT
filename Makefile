@@ -1,5 +1,5 @@
-UI_RESOURCES_DIR := resources/ui
-UI_BUILD_DIR := nc2dt/gui/generated
+UI_RESOURCES_DIR := ui
+UI_BUILD_DIR := src/main/python/nc2dt/gui/generated
 
 UI_RESOURCES := $(wildcard $(UI_RESOURCES_DIR)/*.ui)
 UI_OBJECTS := $(patsubst $(UI_RESOURCES_DIR)/%.ui, $(UI_BUILD_DIR)/%.py, $(UI_RESOURCES))
