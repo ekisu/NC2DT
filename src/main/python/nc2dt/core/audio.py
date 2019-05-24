@@ -9,6 +9,8 @@ import subprocess
 class Audio(object):
     def __init__(self, path: Path):
         self.path: Path = path
+        if not self.path.exists():
+            raise FileNotFoundError("Audio file does not exist!")
     
     def convert_nc_to_dt(self, out_path: Path):
         # Slow it to 2/3 of the original speed, altering the pitch, and
