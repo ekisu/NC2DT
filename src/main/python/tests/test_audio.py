@@ -4,10 +4,7 @@ from nc2dt.core.audio import Audio
 from nc2dt.utils import set_app_context
 from pathlib import Path
 from subprocess import CalledProcessError
-
-def asset_path_builder(sub_path: Path) -> Path:
-    assets_folder = Path(__file__).parent
-    return assets_folder.joinpath(Path("assets"), sub_path)
+from .utils import asset_path_builder
 
 
 class TestAudio(unittest.TestCase):
