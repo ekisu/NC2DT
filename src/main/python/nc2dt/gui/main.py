@@ -6,8 +6,9 @@ from nc2dt.utils import set_app_context
 from pathlib import Path
 from PyQt5 import QtWidgets
 import sys
+import traceback
 
-if __name__ == "__main__":
+def main():
     appctxt = ApplicationContext()
     set_app_context(appctxt)
 
@@ -39,3 +40,12 @@ if __name__ == "__main__":
     main_window = MainWindow(osu_db)
     main_window.show()
     sys.exit(appctxt.app.exec())
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        with open("crash_log.txt", "a") as f:
+            f.write(str(e) + "\n")
+            f.write(traceback.format_exc())
+        raise
