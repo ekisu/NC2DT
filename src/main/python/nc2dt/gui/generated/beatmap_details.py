@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'resources/ui/beatmap_details.ui'
+# Form implementation generated from reading ui file 'ui/beatmap_details.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -83,6 +83,6 @@ class Ui_BeatmapDetails(object):
         self.label_9.setText(_translate("BeatmapDetails", "Audio File:"))
         self.audioLabel.setText(_translate("BeatmapDetails", "TextLabel"))
         self.createConvertedAudioButton.setText(_translate("BeatmapDetails", "Create Converted Audio"))
-        self.switchAudioButton.setText(_translate("BeatmapDetails", "Enable NC2DT Audio"))
+        self.switchAudioButton.setText(_translate("BeatmapDetails", "Switch to NC2DT Audio"))
         self.closeButton.setText(_translate("BeatmapDetails", "Close"))
 
