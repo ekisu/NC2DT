@@ -11,10 +11,7 @@ if __name__ == "__main__":
     appctxt = ApplicationContext()
     set_app_context(appctxt)
 
-    osu_path = get_default_osu_path()
-    settings_osu_path = get_osu_path()
-    if settings_osu_path is not None:
-        osu_path = settings_osu_path
+    osu_path = get_osu_path()
     osu_db_file_path = osu_path / Path("osu!.db")
 
     if not osu_db_file_path.exists():

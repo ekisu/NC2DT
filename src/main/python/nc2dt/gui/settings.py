@@ -9,7 +9,7 @@ def get_osu_path():
     settings = _get_settings()
     osu_path_str = settings.value("osu_path", type=str)
     if osu_path_str == "":
-        return None
+        return get_default_osu_path()
     return Path(osu_path_str)
 
 def set_osu_path(path_str):

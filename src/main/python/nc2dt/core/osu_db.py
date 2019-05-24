@@ -14,8 +14,6 @@ def get_default_osu_path():
         (path for path in possible_osu_folder_locations if path.exists()),
         None
     )
-    if osu_path is None:
-        raise RuntimeError("Couldn't find osu! installation folder.")
     
     return osu_path
 

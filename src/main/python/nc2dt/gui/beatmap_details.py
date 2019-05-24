@@ -1,7 +1,8 @@
 from .generated.beatmap_details import Ui_BeatmapDetails
 from PyQt5 import QtWidgets
-from nc2dt.core.osu_db import Beatmap, get_default_osu_path
+from nc2dt.core.osu_db import Beatmap
 from nc2dt.core.beatmap_control import BeatmapControl
+from .settings import get_osu_path
 from nc2dt.utils import debug
 from threading import Thread
 
@@ -9,7 +10,7 @@ class BeatmapDetails(QtWidgets.QDialog):
     def __init__(self, parent, beatmap: Beatmap):
         super().__init__(parent)
         self.beatmap = beatmap
-        self.beatmapControl = BeatmapControl(self.beatmap, get_default_osu_path())
+        self.beatmapControl = BeatmapControl(self.beatmap, get_osu_path())
         self.ui = Ui_BeatmapDetails()
         self.ui.setupUi(self)
         self.updateUi()
