@@ -6,9 +6,12 @@ UI_OBJECTS := $(patsubst $(UI_RESOURCES_DIR)/%.ui, $(UI_BUILD_DIR)/%.py, $(UI_RE
 
 UIC := python -m PyQt5.uic.pyuic
 
-.PHONY: all
+.PHONY: all test
 
 all: $(UI_OBJECTS)
 
 $(UI_BUILD_DIR)/%.py: $(UI_RESOURCES_DIR)/%.ui
 	$(UIC) $< -o $@
+
+test:
+	python -m unittest discover -s src/main/python/tests -t src/main/python
