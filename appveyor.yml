@@ -28,4 +28,4 @@ after_test:
   - "rmdir target\\PyInstaller /s /q"
 
 artifacts:
-  - path: target\*
+  - path: target
