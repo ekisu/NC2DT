@@ -38,6 +38,7 @@ after_test:
   # 64-bit Python 3.3/3.4. And you need to use %PYTHON% to get the correct
   # interpreter
   - "venv\\Scripts\\activate.bat"
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "fbs freeze"
   - "venv\\Scripts\\deactivate.bat"
 
