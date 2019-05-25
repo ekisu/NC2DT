@@ -1,7 +1,6 @@
 from pathlib import Path
 from nc2dt.utils import debug, get_sox_executable, get_soundstretch_executable
 import time
-import ffmpeg
 import os
 from tempfile import NamedTemporaryFile
 import subprocess
