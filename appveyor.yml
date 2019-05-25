@@ -9,6 +9,7 @@ environment:
 
 install:
   # We need wheel installed to build wheels
+  - "choco install make -y"
   - "mkdir src\\main\\resources\\windows"
   - "curl -L --output windows.zip https://files.catbox.moe/0ohnae.zip"
   - "7z x windows.zip -osrc\\main\\resources\\"
