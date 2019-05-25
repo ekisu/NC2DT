@@ -1,0 +1,32 @@
+environment:
+  matrix:
+    - PYTHON: "C:\\Python37-x64"
+
+install:
+  - "choco install make -y"
+  - "mkdir src\\main\\resources\\windows"
+  - "curl -L --output windows.zip https://files.catbox.moe/0ohnae.zip"
+  - "7z x windows.zip -osrc\\main\\resources\\"
+
+build_script:
+  - "%PYTHON%\\python.exe -m venv venv"
+  - "venv\\Scripts\\activate.bat"
+  - "python -m pip install -r requirements.txt"
+  - "venv\\Scripts\\deactivate.bat"
+
+test_script:
+  - "venv\\Scripts\\activate.bat"
+  - "make test"
+  - "venv\\Scripts\\deactivate.bat"
+
+after_test:
+  - "venv\\Scripts\\activate.bat"
+  # We need this or fbs will fail, it won't manage to find python3.dll.
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "fbs freeze"
+  - "venv\\Scripts\\deactivate.bat"
+  - "rmdir target\\PyInstaller /s /q"
+
+artifacts:
+  - path: target
+    name: NC2DT
