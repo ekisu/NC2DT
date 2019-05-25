@@ -29,3 +29,4 @@ after_test:
 
 artifacts:
   - path: target
+    name: NC2DT
