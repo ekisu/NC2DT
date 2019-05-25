@@ -28,7 +28,7 @@ test_script:
   # the interpreter you're using - Appveyor does not do anything special
   # to put the Python version you want to use on PATH.
   - "venv\\Scripts\\activate.bat"
-  - "build.cmd make test"
+  - "make test"
   - "venv\\Scripts\\deactivate.bat"
 
 after_test:
@@ -37,7 +37,7 @@ after_test:
   # 64-bit Python 3.3/3.4. And you need to use %PYTHON% to get the correct
   # interpreter
   - "venv\\Scripts\\activate.bat"
-  - "build.cmd fbs freeze"
+  - "fbs freeze"
   - "venv\\Scripts\\deactivate.bat"
 
 artifacts:
