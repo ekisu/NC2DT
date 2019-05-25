@@ -9,9 +9,9 @@ environment:
 
 install:
   # We need wheel installed to build wheels
-  - "mkdir src/main/resources/windows"
+  - "mkdir src\\main\\resources\\windows"
   - "curl -L --output windows.zip https://files.catbox.moe/0ohnae.zip"
-  - "7z x windows.zip -osrc/main/resources/"
+  - "7z x windows.zip -osrc\\main\\resources\\"
 
 build_script:
   - "%PYTHON%\\python.exe -m venv venv"
