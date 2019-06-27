@@ -47,8 +47,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionChangeOsuPath"/>
+   </widget>
+   <addaction name="menuSettings"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionChangeOsuPath">
+   <property name="text">
+    <string>Change osu! path</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

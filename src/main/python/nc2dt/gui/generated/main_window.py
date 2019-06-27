@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'resources/ui/main_window.ui'
+# Form implementation generated from reading ui file 'ui/main_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -33,10 +33,16 @@ class Ui_MainWindow(object):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 471, 21))
         self.menubar.setObjectName("menubar")
+        self.menuSettings = QtWidgets.QMenu(self.menubar)
+        self.menuSettings.setObjectName("menuSettings")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionChangeOsuPath = QtWidgets.QAction(MainWindow)
+        self.actionChangeOsuPath.setObjectName("actionChangeOsuPath")
+        self.menuSettings.addAction(self.actionChangeOsuPath)
+        self.menubar.addAction(self.menuSettings.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -45,4 +51,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "NC2DT"))
         self.label.setText(_translate("MainWindow", "Beatmap search:"))
+        self.menuSettings.setTitle(_translate("MainWindow", "Settings"))
+        self.actionChangeOsuPath.setText(_translate("MainWindow", "Change osu! path"))
 
